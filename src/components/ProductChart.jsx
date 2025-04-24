@@ -73,12 +73,12 @@ const ProductChart = () => {
         <h2 className="text-xl font-bold text-center mb-4">
           Color-wise Product Chart
         </h2>
-        <ResponsiveContainer width="100%" height="100%">
+        <ResponsiveContainer width="90%" height="100%">
           <BarChart data={colorData}>
             <XAxis dataKey="name" />
             <YAxis domain={[0, "dataMax +1 "]} allowDecimals={false} />
             <Tooltip />
-            <Bar dataKey="value" fill="#8884d8" barSize={50} />
+            <Bar dataKey="value" fill="#8884d8" barSize={80} />
           </BarChart>
         </ResponsiveContainer>
       </div>
