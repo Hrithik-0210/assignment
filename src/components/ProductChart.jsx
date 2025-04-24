@@ -20,7 +20,9 @@ const ProductChart = () => {
 
   const getProductData = async () => {
     try {
-      const data = await fetch("http://localhost:3001/products");
+      const data = await fetch(
+        "https://product-data-5biy.onrender.com/products"
+      );
       const jsonData = await data.json();
       console.log(jsonData);
 
