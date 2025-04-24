@@ -10,14 +10,14 @@ const ProductList = () => {
         "https://product-data-5biy.onrender.com/products"
       );
       const jsonData = await data.json();
-      console.log(jsonData);
+      // console.log(jsonData);
       setProductData(jsonData);
     } catch (err) {
       console.log("No Data Found", err);
     }
   };
 
-  console.log(productData);
+  // console.log(productData);
 
   useEffect(() => {
     getProductData();
@@ -37,7 +37,7 @@ const ProductList = () => {
         .filter(Boolean)
     ),
   ];
-  console.log(colors);
+  // console.log(colors);
   const handleFilter = () => {
     return productData.filter((product) => {
       const colorMatch = filters.color

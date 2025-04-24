@@ -24,7 +24,7 @@ const ProductChart = () => {
         "https://product-data-5biy.onrender.com/products"
       );
       const jsonData = await data.json();
-      console.log(jsonData);
+      // console.log(jsonData);
 
       const colorCount = {};
       const capacityCount = {};
@@ -58,8 +58,8 @@ const ProductChart = () => {
     }
   };
 
-  console.log(colorData);
-  console.log(capacityData);
+  // console.log(colorData);
+  // console.log(capacityData);
 
   useEffect(() => {
     getProductData();
