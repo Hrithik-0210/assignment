@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductList from "./ProductList";
 // import ProductList from "./ProductList";
 
@@ -10,6 +10,18 @@ const ProductForm = () => {
 
   const [jsonInput, setJsonInput] = useState("");
   const [jsonErr, setJsonErr] = useState("");
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  const fetchProducts = async () => {
+    const res = await fetch("https://product-data-5biy.onrender.com/products");
+    const data = await res.json();
+    setProducts(data);
+  };
 
   //add product in the db
   async function handleAddProduct(e) {
@@ -38,8 +50,12 @@ const ProductForm = () => {
       },
       body: JSON.stringify(productData),
     });
+
+    alert("Product is added successfully !");
     // console.log("product added :", productDetails);
   }
+
+  fetchProducts();
 
   function handleProductName(e) {
     setProductDetails((prev) => ({
@@ -97,7 +113,7 @@ const ProductForm = () => {
         </button>
       </div>
       <div>
-        <ProductList />
+        <ProductList products={products} />
       </div>
     </div>
   );

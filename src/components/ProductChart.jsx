@@ -69,7 +69,7 @@ const ProductChart = () => {
 
   return (
     <div className="flex gap-5">
-      <div style={{ width: "500px", height: 300 }}>
+      <div style={{ width: "100%", height: 300 }}>
         <h2 className="text-xl font-bold text-center mb-4">
           Color-wise Product Chart
         </h2>
@@ -78,7 +78,7 @@ const ProductChart = () => {
             <XAxis dataKey="name" />
             <YAxis domain={[0, "dataMax +1 "]} allowDecimals={false} />
             <Tooltip />
-            <Bar dataKey="value" fill="#8884d8" />
+            <Bar dataKey="value" fill="#8884d8" barSize={50} />
           </BarChart>
         </ResponsiveContainer>
       </div>

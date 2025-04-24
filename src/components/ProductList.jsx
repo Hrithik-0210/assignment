@@ -1,36 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-const ProductList = () => {
-  const [productData, setProductData] = useState([]);
+const ProductList = ({ products }) => {
   const [filters, setFilters] = useState({ color: "", capacity: "" });
 
-  const getProductData = async () => {
-    try {
-      const data = await fetch(
-        "https://product-data-5biy.onrender.com/products"
-      );
-      const jsonData = await data.json();
-      // console.log(jsonData);
-      setProductData(jsonData);
-    } catch (err) {
-      console.log("No Data Found", err);
-    }
-  };
-
-  // console.log(productData);
-
-  useEffect(() => {
-    getProductData();
-  }, []);
-
   const colors = [
-    ...new Set(
-      productData.map((product) => product?.data?.color).filter(Boolean)
-    ),
+    ...new Set(products.map((product) => product?.data?.color).filter(Boolean)),
   ];
   const capacities = [
     ...new Set(
-      productData
+      products
         .map(
           (p) => p.data?.capacity || p.data?.Capacity || p.data?.["capacity GB"]
         )
@@ -39,7 +17,7 @@ const ProductList = () => {
   ];
   // console.log(colors);
   const handleFilter = () => {
-    return productData.filter((product) => {
+    return products.filter((product) => {
       const colorMatch = filters.color
         ? product.data?.color === filters.color ||
           product.data?.Color === filters.color
