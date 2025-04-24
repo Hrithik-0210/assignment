@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "backend": "node server.cjs"
+    "backend": "node server.cjs",
+    "start": "json-server --watch db.json --port $PORT"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.4",
