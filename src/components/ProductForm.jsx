@@ -15,9 +15,7 @@ const ProductForm = () => {
   async function handleAddProduct(e) {
     e.preventDefault();
 
-    const response = await fetch(
-      "https://product-data-5biy.onrender.com/products"
-    );
+    const response = await fetch("http://localhost:3001/products");
     const data = await response.json();
 
     const newId = (data.length + 1).toString();
@@ -31,7 +29,7 @@ const ProductForm = () => {
           : productDetails.data,
     };
 
-    await fetch("https://product-data-5biy.onrender.com/products", {
+    await fetch("http://localhost:3001/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
